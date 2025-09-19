@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { LinkCard } from './components/LinkCard';
+import { AddLinkModal } from './components/AddLinkModal';
 import type { LinkItem } from './types';
 import { 
   YouTubeIcon, 
@@ -12,7 +13,8 @@ import {
   BinanceIcon,
   NetflixIcon,
   PrimeVideoIcon,
-  JWOrgIcon
+  JWOrgIcon,
+  LinkIcon
 } from './components/icons';
 
 const defaultLinks: LinkItem[] = [
@@ -85,6 +87,7 @@ const App: React.FC = () => {
   
   const [isEditingTitle, setIsEditingTitle] = useState(false);
   const [isEditingLinks, setIsEditingLinks] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [links, setLinks] = useState<LinkItem[]>(() => {
     const savedLinks = localStorage.getItem('homepageLinks');
@@ -104,7 +107,7 @@ const App: React.FC = () => {
           primevideo: <PrimeVideoIcon className="w-10 h-10 md:w-12 md:h-12" />,
           jworg: <JWOrgIcon className="w-10 h-10 md:w-12 md:h-12" />,
         };
-        return { ...link, icon: iconMap[link.id] || <GoogleIcon className="w-10 h-10 md:w-12 md:h-12" /> };
+        return { ...link, icon: iconMap[link.id] || <LinkIcon className="w-10 h-10 md:w-12 md:h-12" /> };
       });
     }    
     return defaultLinks;
@@ -129,23 +132,22 @@ const App: React.FC = () => {
     setLinks(prevLinks => prevLinks.filter(link => link.id !== idToDelete));
   };
 
-  const handleAddLink = () => {
-    const name = prompt("Enter the name for the new link:");
-    if (!name) return;
-
-    const url = prompt("Enter the URL for the new link:");
-    if (!url) return;
-
-    const id = name.toLowerCase().replace(/\s+/g, '-');
-
+  const handleAddLink = ({ name, url }: { name: string; url: string }) => {
+    // Creamos un nuevo objeto de enlace
     const newLink: LinkItem = {
-      id,
+      id: `link-${Date.now()}`, // Un ID único basado en la fecha actual
       name,
       url,
-      icon: <GoogleIcon className="w-10 h-10 md:w-12 md:h-12" />
+      // Asignamos un icono genérico. ¡Asegúrate de importar LinkIcon!
+      // Si no creas LinkIcon, puedes usar cualquier otro icono como placeholder.
+      icon: <LinkIcon className="w-10 h-10 md:w-12 md:h-12" /> 
     };
 
+    // Usamos la función setLinks que ya tenías
     setLinks(prevLinks => [...prevLinks, newLink]);
+    
+    // Cerramos el modal después de guardar
+    setIsModalOpen(false);
   };
 
   return (
@@ -186,7 +188,7 @@ const App: React.FC = () => {
         {isEditingLinks && (
           <div className="mb-8">
             <button 
-              onClick={handleAddLink}
+              onClick={() => setIsModalOpen(true)}
               className="bg-sky-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-sky-600 transition-colors"
             >
               + Add New Link
@@ -227,6 +229,12 @@ const App: React.FC = () => {
           </button>
         </footer>
       </main>
+
+      <AddLinkModal 
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSave={handleAddLink}
+      />
     </div>
   );
 };

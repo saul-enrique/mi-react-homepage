@@ -9,3 +9,4 @@ export { BinanceIcon } from './BinanceIcon';
 export { NetflixIcon } from './NetflixIcon';
 export { PrimeVideoIcon } from './PrimeVideoIcon';
 export { JWOrgIcon } from './JWOrgIcon';
+export { LinkIcon } from './LinkIcon';
