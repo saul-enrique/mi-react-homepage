@@ -5,7 +5,6 @@
 **✨ [Ver la demo en vivo](https://mi-react-homepage.vercel.app)**
 
 ![Captura de pantalla de la Homepage](https://raw.githubusercontent.com/saul-enrique/mi-react-homepage/main/screenshot.png) 
-*(Nota: Asegúrate de que esta URL sea la correcta para tu captura de pantalla)*
 
 ---
 
