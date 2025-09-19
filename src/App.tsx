@@ -18,6 +18,8 @@ import {
 } from './components/icons';
 
 const App: React.FC = () => {
+  // Array de objetos que representan los enlaces a mostrar en la página.
+  // Cada objeto contiene id, nombre, URL y el componente de icono correspondiente.
   const links: LinkItem[] = [
     { 
       id: 'youtube', 
@@ -94,13 +96,17 @@ const App: React.FC = () => {
   ];
 
   return (
+    // Contenedor principal con imagen de fondo fija y cubierta.
     <div 
       className="relative min-h-screen bg-cover bg-center bg-fixed" 
       style={{ backgroundImage: "url('https://picsum.photos/1920/1080?grayscale&blur=3')" }}
     >
+      {/* Capa de superposición con color y efecto de desenfoque */}
       <div className="absolute inset-0 bg-slate-900/50 backdrop-blur-md" />
       
+      {/* Contenido principal de la página */}
       <main className="relative z-10 flex flex-col items-center justify-center min-h-screen p-4 sm:p-6 md:p-8 selection:bg-sky-500 selection:text-white">
+        {/* Encabezado con título y subtítulo */}
         <header className="mb-10 md:mb-16 text-center">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white text-shadow">
             Homepage Otanisau
@@ -110,7 +116,9 @@ const App: React.FC = () => {
           </p>
         </header>
 
+        {/* Grid para mostrar las tarjetas de enlaces */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
+          {/* Mapea el array de enlaces y renderiza un componente LinkCard por cada uno */}
           {links.map(link => (
             <LinkCard 
               key={link.id} 
@@ -121,6 +129,7 @@ const App: React.FC = () => {
           ))}
         </div>
 
+        {/* Pie de página */}
         <footer className="absolute bottom-6 md:bottom-8 text-sm text-slate-400/80">
           otanisau ☮
         </footer>
