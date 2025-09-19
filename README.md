@@ -5,7 +5,7 @@
 **✨ [Ver la demo en vivo](https://mi-react-homepage.vercel.app)**
 
 ![Captura de pantalla de la Homepage](https://raw.githubusercontent.com/saul-enrique/mi-react-homepage/main/screenshot.png) 
-*(Nota: Reemplaza esta URL con la URL de tu captura de pantalla una vez la subas a GitHub)*
+*(Nota: Asegúrate de que esta URL sea la correcta para tu captura de pantalla)*
 
 ---
 
@@ -69,6 +69,6 @@ Para levantar este proyecto en tu propia máquina, sigue estos pasos:
 
 Este proyecto fue un viaje de aprendizaje integral. No solo profundicé mis habilidades en **React** y **TypeScript** para crear una interfaz dinámica, sino que me enfrenté al desafío de llevar una aplicación desde el concepto hasta un despliegue de producción real.
 
-Implementar la persistencia de datos con **`localStorage`** y gestionar el estado con los hooks de React fue clave para la funcionalidad de personalización. Sin embargo, el mayor reto fue aprender a optimizar la aplicación para el despliegde, creando un **`Dockerfile` multi-etapa** que reduce drásticamente el tamaño de la imagen final.
+Implementar la persistencia de datos con **`localStorage`** y gestionar el estado con los hooks de React fue clave para la funcionalidad de personalización. Sin embargo, el mayor reto fue aprender a optimizar la aplicación para el **despliegue**, creando un **`Dockerfile` multi-etapa** que reduce drásticamente el tamaño de la imagen final.
 
 Este proyecto solidificó mi entendimiento del ciclo de vida completo del desarrollo de software, desde la idea inicial y el diseño, hasta la contenerización y el despliegue continuo con **Vercel**.
