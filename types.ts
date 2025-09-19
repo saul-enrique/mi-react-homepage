@@ -4,5 +4,5 @@ export interface LinkItem {
   id: string;
   name: string;
   url: string;
-  icon: React.ReactElement<{ className?: string }>;
+  icon: React.ReactElement | string;;
 }

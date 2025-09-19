@@ -133,21 +133,29 @@ const App: React.FC = () => {
   };
 
   const handleAddLink = ({ name, url }: { name: string; url: string }) => {
-    // Creamos un nuevo objeto de enlace
-    const newLink: LinkItem = {
-      id: `link-${Date.now()}`, // Un ID único basado en la fecha actual
-      name,
-      url,
-      // Asignamos un icono genérico. ¡Asegúrate de importar LinkIcon!
-      // Si no creas LinkIcon, puedes usar cualquier otro icono como placeholder.
-      icon: <LinkIcon className="w-10 h-10 md:w-12 md:h-12" /> 
-    };
+    try {
+      // Extraemos el nombre del dominio de la URL que el usuario introdujo.
+      // Ej: de "https://www.spotify.com/es/download/", extrae "www.spotify.com"
+      const domain = new URL(url).hostname;
 
-    // Usamos la función setLinks que ya tenías
-    setLinks(prevLinks => [...prevLinks, newLink]);
-    
-    // Cerramos el modal después de guardar
-    setIsModalOpen(false);
+      // Construimos la URL del favicon de Google
+      const iconUrl = `https://www.google.com/s2/favicons?domain=${domain}&sz=64`;
+
+      const newLink: LinkItem = {
+        id: `link-${Date.now()}`,
+        name,
+        url,
+        icon: iconUrl, // ¡Guardamos la URL del icono en lugar de un componente!
+      };
+
+      setLinks(prevLinks => [...prevLinks, newLink]);
+      setIsModalOpen(false);
+
+    } catch (error) {
+      // Si la URL es inválida (ej: "hola"), el `new URL(url)` fallará.
+      console.error("URL inválida:", error);
+      alert("Por favor, introduce una URL válida (ej: https://www.ejemplo.com)");
+    }
   };
 
   return (
