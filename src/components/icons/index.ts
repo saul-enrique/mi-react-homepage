@@ -1,8 +1,6 @@
 
 export { YouTubeIcon } from './YouTubeIcon';
-export { AIStudioIcon } from './AIStudioIcon';
 export { FacebookIcon } from './FacebookIcon';
-export { GeminiIcon } from './GeminiIcon';
 export { PinterestIcon } from './PinterestIcon';
 export { WhatsAppIcon } from './WhatsAppIcon';
 export { GoogleIcon } from './GoogleIcon';

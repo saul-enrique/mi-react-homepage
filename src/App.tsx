@@ -4,9 +4,7 @@ import { LinkCard } from './components/LinkCard';
 import type { LinkItem } from './types';
 import { 
   YouTubeIcon, 
-  AIStudioIcon, 
   FacebookIcon, 
-  GeminiIcon, 
   PinterestIcon, 
   WhatsAppIcon,
   GoogleIcon,
@@ -28,22 +26,10 @@ const App: React.FC = () => {
       icon: <YouTubeIcon className="w-10 h-10 md:w-12 md:h-12" /> 
     },
     { 
-      id: 'aistudio', 
-      name: 'AI Studio', 
-      url: 'https://aistudio.google.com/', 
-      icon: <AIStudioIcon className="w-10 h-10 md:w-12 md:h-12" /> 
-    },
-    { 
       id: 'facebook', 
       name: 'Facebook', 
       url: 'https://www.facebook.com', 
       icon: <FacebookIcon className="w-10 h-10 md:w-12 md:h-12" />
-    },
-    { 
-      id: 'gemini', 
-      name: 'Gemini', 
-      url: 'https://gemini.google.com/', 
-      icon: <GeminiIcon className="w-10 h-10 md:w-12 md:h-12" /> 
     },
     { 
       id: 'pinterest', 
