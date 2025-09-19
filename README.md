@@ -10,10 +10,12 @@
 
 ## 🌟 Características Principales
 
-*   **Dashboard Personalizable:** Una parrilla de enlaces a mis sitios y herramientas más utilizados.
-*   **Chat con IA Integrado:** Una interfaz para comunicarse directamente con el modelo Gemini de Google.
+*   **Dashboard 100% Personalizable:**
+    *   **Título Editable:** El título principal puede ser modificado por el usuario y los cambios se guardan localmente.
+    *   **Gestión de Enlaces Dinámica:** Los usuarios pueden añadir sus propios enlaces y eliminar los existentes a través de un intuitivo "modo edición".
+*   **Persistencia de Datos Locales:** Todas las personalizaciones (título y enlaces) se guardan en el `localStorage` del navegador, por lo que la configuración de cada usuario se mantiene entre sesiones.
 *   **Diseño Moderno y Responsive:** Creado con Tailwind CSS para una experiencia de usuario limpia en cualquier dispositivo.
-*   **Despliegue en Producción:** La aplicación está "dockerizada" con un `Dockerfile` multi-etapa para crear una imagen ligera y optimizada servida por Nginx.
+*   **Desplegado en Producción:** La aplicación está "dockerizada" con un `Dockerfile` multi-etapa para crear una imagen ligera y optimizada servida por Nginx.
 
 ---
 
